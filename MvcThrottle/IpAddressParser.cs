@@ -60,7 +60,7 @@ namespace MvcThrottle
                 var publicForwardingIps = xForwardedFor.Split(',').Where(ip => !IsPrivateIpAddress(ip)).ToList();
 
                 // If we found any public IP, return the last one, otherwise return the user host address
-                return publicForwardingIps.Any() ? publicForwardingIps.Last().Trim() : ipAddress;
+                return publicForwardingIps.Any() ? publicForwardingIps.First().Trim() : ipAddress;
             }
 
             return ipAddress;
